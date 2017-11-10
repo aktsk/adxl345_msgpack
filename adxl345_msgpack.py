@@ -121,7 +121,7 @@ if __name__ == "__main__":
             print "   x = %.3fG" % ( axes['x'] )
             print "   y = %.3fG" % ( axes['y'] )
             print "   z = %.3fG" % ( axes['z'] )
-            axes['time'] = datetime.now().strftime('%s')
+            axes['time'] = long(datetime.now().strftime('%s'))
             packed_axes = msgpack.packb(axes)
             sock.sendto(packed_axes, (args.hostname, args.portnum))
             sleep(0.02)
